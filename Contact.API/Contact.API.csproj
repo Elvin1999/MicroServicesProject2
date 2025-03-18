@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contact.API.Infrasturucture\Contact.API.Infrasturucture.csproj" />
+    <ProjectReference Include="..\Contact.API.Model\Contact.API.Model.csproj" />
+    <ProjectReference Include="..\Contact.API.Services\Contact.API.Services.csproj" />
+  </ItemGroup>
+
+</Project>
