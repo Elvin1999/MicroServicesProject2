@@ -3,15 +3,19 @@ import './App.css'
 
 function App() {
     const [data, setData] = useState([]);
-    const [firstname, setFirstname] = useState("");
-    const [lastname, setLastname] = useState("");
+    const [person, setPerson] = useState({
+        firstname: "",
+        lastname: ""
+    })
 
     const handleChangeFirstname = (e) => {
-        setFirstname(e.target.value);
+        setPerson({ ...person, firstname: e.target.value }
+        );
     }
 
     const handleChangeLastname = (e) => {
-        setLastname(e.target.value);
+        setPerson({...person,  lastname: e.target.value }
+        );
     }
 
     const getContacts = () => {
@@ -25,8 +29,8 @@ function App() {
 
     const onSave = () => {
         const body = {
-            firstname: firstname ?? "no name",
-            lastname: lastname ?? "no surname"
+            firstname: person.firstname ?? "no name",
+            lastname: person.lastname ?? "no surname"
         };
         fetch("https://localhost:22950/c", {
             method: "POST",
@@ -53,11 +57,11 @@ function App() {
             <h1>Add New Contact</h1>
             <div>
                 <label>Firstname</label>
-                <input onChange={handleChangeFirstname} value={firstname} />
+                <input onChange={handleChangeFirstname} value={person.firstname} />
             </div>
             <div>
                 <label>Lastname</label>
-                <input onChange={handleChangeLastname} value={lastname} />
+                <input onChange={handleChangeLastname} value={person.lastname} />
             </div>
             <button onClick={onSave}>Save</button>
             {
